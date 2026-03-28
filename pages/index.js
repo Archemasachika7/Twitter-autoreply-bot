@@ -15,7 +15,8 @@ function formatTime(date) {
 
 export default function Home() {
   const [tweetUrl, setTweetUrl] = useState("");
-  const [replyText, setReplyText] = useState("");
+  const DEFAULT_REPLY = "Hello! Kepler Codes here 🚀 Looking for Web Dev, AI/ML, Cybersecurity, CP or DSA mastery? Our educators have real-world experience at Amazon, Google & Deutsche Bank. Join us: https://kepler-22b.vercel.app/";
+  const [replyText, setReplyText] = useState(DEFAULT_REPLY);
   const [status, setStatus] = useState({ msg: "", type: "" });
   const [posting, setPosting] = useState(false);
   const [log, setLog] = useState([]);
@@ -82,7 +83,7 @@ export default function Home() {
       addToLog(replyText, tweetUrl, "posted");
       setStatus({ msg: "Reply posted successfully!", type: "success" });
       setTweetUrl("");
-      setReplyText("");
+      setReplyText(DEFAULT_REPLY);
     } catch (err) {
       setStatus({ msg: "Error: " + err.message, type: "error" });
       addToLog(replyText, tweetUrl, "failed");
@@ -123,7 +124,7 @@ export default function Home() {
           <label style={{ ...styles.label, marginTop: 14 }}>Your reply</label>
           <textarea
             style={styles.textarea}
-            placeholder="Hello, Kepler Codes here looking for some Web Dev, AI/ML, Cybersecurity, CP or DSA mastery. Educators with work experience at Amazon, Google, Deutsche Bank are here to teach you. Join us: https://kepler-22b.vercel.app/"
+            placeholder="Edit your reply here..."
             value={replyText}
             onChange={(e) => setReplyText(e.target.value)}
           />
@@ -152,7 +153,7 @@ export default function Home() {
             </button>
             <button
               style={styles.btn}
-              onClick={() => { setTweetUrl(""); setReplyText(""); setStatus({ msg: "", type: "" }); }}
+              onClick={() => { setTweetUrl(""); setReplyText(DEFAULT_REPLY); setStatus({ msg: "", type: "" }); }}
             >
               Clear
             </button>
