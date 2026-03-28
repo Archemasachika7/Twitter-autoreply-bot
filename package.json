@@ -1,0 +1,16 @@
+{
+  "name": "kepler-reply-bot",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.3",
+    "react": "^18",
+    "react-dom": "^18",
+    "oauth-1.0a": "^2.2.6",
+    "crypto-js": "^4.2.0"
+  }
+}
